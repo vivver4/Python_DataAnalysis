@@ -1,4 +1,4 @@
-# 第1章 Python语法基础，IPython和Jupyter Notebooks
+# IPython，Jupyter Notebooks基础和Python语法基础
 
 因为这本书是专注于Python数据处理的，对于一些Python的数据结构和库的特性难免不足。因此，本章和第3章的内容只够你能学习本书后面的内容。
 
@@ -8,7 +8,7 @@
 > * 流畅的Python，Luciano Ramalho著 \(O’Reilly\)
 > * 高效的Python，Brett Slatkin著 \(Pearson\)
 
-## 1.2 IPython基础
+## 1.1 IPython基础
 
 在本节中，我们会教你打开运行IPython shell和jupyter notebook，并介绍一些基本概念。
 
