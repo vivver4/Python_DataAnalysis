@@ -2,7 +2,7 @@
 
 我们会从Python最基础的数据结构开始：元组、列表、字典和集合。然后会讨论创建你自己的、可重复使用的Python函数。最后，会学习Python的文件对象，以及如何与本地硬盘交互。
 
-# 3.1 数据结构和序列
+# 2.1 数据结构和序列
 Python的数据结构简单而强大。通晓它们才能成为熟练的Python程序员。
 
 ## 元组
@@ -913,7 +913,7 @@ Out[167]: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 这段代码产生了一个列表的列表，而不是扁平化的只包含元素的列表。
 
-# 3.2 函数
+# 2.2 函数
 函数是Python中最主要也是最重要的代码组织和复用手段。作为最重要的原则，如果你要重复使用相同或非常类似的代码，就需要写一个函数。通过给函数起一个名字，还可以提高代码的可读性。
 
 函数使用``def``关键字声明，用``return``关键字返回值：
@@ -1369,38 +1369,8 @@ finally:
     f.close()
 ```
 
-## IPython的异常
-如果是在%run一个脚本或一条语句时抛出异常，IPython默认会打印完整的调用栈（traceback），在栈的每个点都会有几行上下文：
 
-```python
-In [10]: %run examples/ipython_bug.py
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-/home/wesm/code/pydata-book/examples/ipython_bug.py in <module>()
-     13     throws_an_exception()
-     14
----> 15 calling_things()
-
-/home/wesm/code/pydata-book/examples/ipython_bug.py in calling_things()
-     11 def calling_things():
-     12     works_fine()
----> 13     throws_an_exception()
-     14
-     15 calling_things()
-
-/home/wesm/code/pydata-book/examples/ipython_bug.py in throws_an_exception()
-      7     a = 5
-      8     b = 6
-----> 9     assert(a + b == 10)
-     10
-     11 def calling_things():
-
-AssertionError:
-```
-
-自身就带有文本是相对于Python标准解释器的极大优点。你可以用魔术命令``%xmode``，从Plain（与Python标准解释器相同）到Verbose（带有函数的参数值）控制文本显示的数量。后面可以看到，发生错误之后，（用%debug或%pdb magics）可以进入stack进行事后调试。
-
-# 3.3 文件和操作系统
+# 2.3 文件和操作系统
 本书的代码示例大多使用诸如pandas.read_csv之类的高级工具将磁盘上的数据文件读入Python数据结构。但我们还是需要了解一些有关Python文件处理方面的基础知识。好在它本来就很简单，这也是Python在文本和文件处理方面的如此流行的原因之一。
 
 为了打开一个文件以便读写，可以使用内置的open函数以及一个相对或绝对的文件路径：
