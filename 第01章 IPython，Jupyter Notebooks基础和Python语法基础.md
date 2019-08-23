@@ -993,7 +993,7 @@ In [80]: type(val_utf8)
 Out[80]: bytes
 ```
 
-如果你知道一个字节对象的Unicode编码，用`decode`方法可以解码：
+若你知道一个字节对象的Unicode编码，用`decode`方法可以解码：
 
 ```python
 In [81]: val_utf8.decode('utf-8')
