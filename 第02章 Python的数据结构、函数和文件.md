@@ -1239,7 +1239,7 @@ Out[192]: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 ```
 
 ## itertools模块
-标准库itertools模块中有一组用于许多常见数据算法的生成器。例如，groupby可以接受任何序列和一个函数。它根据函数的返回值对序列中的连续元素进行分组。下面是一个例子：
+标准库itertools模块中有一组用于许多常见数据算法的生成器。例如，groupby可以接受任何序列和一个函数。它根据函数的返回值对序列中的连续元素进行分组。下面是一个例子：（groupby函数看廖雪峰的Python教程，讲解更清晰）
 
 ```python
 In [193]: import itertools
@@ -1543,7 +1543,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 3: unexpect
 d end of data
 ```
 
-文本模式结合了open的编码选项，提供了一种更方便的方法将Unicode转换为另一种编码：
+文本模式结合了open的编码选项，提供了一种更方便的方法将Unicode转换为另一种编码：（不同于字符有encode，decode，with open就用encoding表明编码方式）
 
 ```python
 In [236]: sink_path = 'sink.txt'
