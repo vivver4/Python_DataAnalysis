@@ -1360,7 +1360,7 @@ In [247]: import random
    .....: walk = [position]
    .....: steps = 1000
    .....: for i in range(steps):
-   .....:     step = 1 if random.randint(0, 1) else -1
+   .....:     step = 1 if random.randint(0, 1) else -1     //random.randint会生成0~1之间的整数，闭区间，也就是0或1
    .....:     position += step
    .....:     walk.append(position)
    .....:
@@ -1434,7 +1434,7 @@ In [265]: walks.min()
 Out[265]: -133
 ```
 
-得到这些数据之后，我们来计算30或－30的最小穿越时间。这里稍微复杂些，因为不是5000个过程都到达了30。我们可以用any方法来对此进行检查：
+得到这些数据之后，我们来计算30或－30的最小穿越时间。这里稍微复杂些，因为不是5000个过程都到达了30。我们可以用any方法（加上1表明沿轴1进行计算）来对此进行检查：
 ```python
 In [266]: hits30 = (np.abs(walks) >= 30).any(1)
 
@@ -1445,7 +1445,7 @@ In [268]: hits30.sum() # Number that hit 30 or -30
 Out[268]: 3410
 ```
 
-然后我们利用这个布尔型数组选出那些穿越了30（绝对值）的随机漫步（行），并调用argmax在轴1上获取穿越时间：
+然后我们利用这个布尔型数组选出那些穿越了30（绝对值）的随机漫步（行），walks[hits30]会从5000行数据中筛选出值为True的行，并调用argmax在轴1上获取穿越时间（argmax会取出第一个最大值对应的索引）：
 ```python
 In [269]: crossing_times = (np.abs(walks[hits30]) >= 30).argmax(1)
 
