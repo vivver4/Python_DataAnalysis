@@ -1369,7 +1369,7 @@ Texas    0.09  0.28   0.77
 Oregon   1.25  1.01  -1.30
 ```
 
-之所以叫做applymap，是因为Series有一个用于应用元素级函数的map方法：
+之所以叫做applymap，是因为Series有一个用于应用元素级函数的map方法，总的来说就是apply()是一种让函数作用于列或者行操作，applymap()是一种让函数作用于DataFrame每一个元素的操作，而map是一种让函数作用于Series每一个元素的操作：
 ```python
 In [200]: frame['e'].map(format)
 Out[200]: 
@@ -1908,7 +1908,7 @@ Out[264]:
 4    4    3    4
 ```
 
-将pandas.value_counts传给该DataFrame的apply函数，就会出现：
+将pandas.value_counts传给该DataFrame的apply函数（沿着axis=0进行计算），就会出现：
 ```python
 In [265]: result = data.apply(pd.value_counts).fillna(0)
 
