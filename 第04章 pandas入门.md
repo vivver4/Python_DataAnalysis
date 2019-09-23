@@ -1710,30 +1710,13 @@ dtype: object
 ![](http://upload-images.jianshu.io/upload_images/7178691-11fa967f658ac314.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 相关系数与协方差
-有些汇总统计（如相关系数和协方差）是通过参数对计算出来的。我们来看几个DataFrame，它们的数据来自Yahoo!Finance的股票价格和成交量，使用的是pandas-datareader包（可以用conda或pip安装）：
 ```python
-conda install pandas-datareader
-```
+In [242]: returns = pd.DataFrame([[-0.000680, 0.001837, 0.002072, -0.003483], [-0.000681, 0.019616, -0.026168, 0.007690],
+                                  [-0.002979, 0.007846, 0.003583, -0.002255], [-0.000512, -0.005652, 0.001719, -0.004867],
+                                  [-0.003930, 0.003011, -0.012474, 0.042096]], columns=['AAPL', 'GOOD', 'IBM', 'MSFT'], 
+                                  index=['2016-10-17', '2016-10-18', '2016-10-19', '2016-10-20', '2016-10-21'])
 
-我使用pandas_datareader模块下载了一些股票数据：
-```python
-import pandas_datareader.data as web
-all_data = {ticker: web.get_data_yahoo(ticker)
-            for ticker in ['AAPL', 'IBM', 'MSFT', 'GOOG']}
-
-price = pd.DataFrame({ticker: data['Adj Close']
-                     for ticker, data in all_data.items()})
-volume = pd.DataFrame({ticker: data['Volume']
-                      for ticker, data in all_data.items()})
-```
-
->注意：此时Yahoo! Finance已经不存在了，因为2017年Yahoo!被Verizon收购了。参阅pandas-datareader文档，可以学习最新的功能。
-
-现在计算价格的百分数变化，时间序列的操作会在第11章介绍：
-```python
-In [242]: returns = price.pct_change()
-
-In [243]: returns.tail()
+In [243]: returns
 Out[243]: 
                 AAPL      GOOG       IBM      MSFT
 Date                                              
